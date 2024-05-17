@@ -10,9 +10,12 @@ export class SignUpDto {
   readonly email: string;
 
   @IsNotEmpty()
-  @Matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/, {
-    message:
-      'Password must contain at least 8 characters, one alphabet, one number, and one special character',
-  })
+  @Matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&~`_(){}[\]-])(?=.*[$@$!%*?&~`_(){}[\]-]).{8,}$/,
+    {
+      message:
+        'Password must contain at least 8 characters, one alphabet, one number, and one special character',
+    },
+  )
   readonly password: string;
 }
